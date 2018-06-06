@@ -32,7 +32,6 @@ public class CheckBox {
 	private void init() {
 		String fontName = "HelveticaNeue.fnt";
 		FileHandle f = Gdx.files.internal("assets/"+fontName);
-		System.out.println(f.exists());
 		font = new BitmapFont(f);
 		barRect.x = position.x;
 		barRect.y = position.y;

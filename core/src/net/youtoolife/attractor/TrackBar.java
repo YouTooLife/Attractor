@@ -16,7 +16,8 @@ public class TrackBar {
 	Rectangle barRect = new Rectangle(0, 0, 175, 15);
 	Rectangle pick = new Rectangle(0, 0, 15, 25);
 	
-	public int pos = 50;
+	public int pos = 0;
+	public boolean changed = false;
 	public int max = 0;
 	
 	public Vector2 position;
@@ -37,7 +38,6 @@ public class TrackBar {
 	private void init() {
 		String fontName = "HelveticaNeue.fnt";
 		FileHandle f = Gdx.files.internal("assets/"+fontName);
-		System.out.println(f.exists());
 		font = new BitmapFont(f);
 		barRect.x = position.x;
 		barRect.y = position.y;
@@ -50,8 +50,7 @@ public class TrackBar {
 		this.pick.y = pickPos.y;
 		
 	}
-	
-	private Vector2 pointXY = null;
+
 	private boolean pickTouched = false;
 	
 	public void update() {
@@ -75,9 +74,9 @@ public class TrackBar {
 			
 			Vector2 point = new Vector2(x, y);
 			if (this.pick.contains(point)) {
-				pointXY = point; 
 				//System.out.println(x+":"+y);
 				pickTouched = true;
+				changed = true;
 			}
 			else {
 				if (pickTouched && !this.barRect.contains(point))
