@@ -128,8 +128,8 @@ public class Attractor extends ApplicationAdapter implements InputProcessor {
 
 	private void loadModelFromFile(String fileName) {
 		 ObjLoader loader = new ObjLoader();
-	        model = loader.loadModel(Gdx.files.external(fileName));
-	        model2 = loader.loadModel(Gdx.files.external(fileName));
+	        model = loader.loadModel(Gdx.files.internal("assets/"+fileName));
+	        model2 = loader.loadModel(Gdx.files.internal("assets/"+fileName));
 	        /*model = modelBuilder.createSphere(2f, 2f, 2f, 20, 20,
 	                new Material(),
 	                Usage.Position | Usage.Normal | Usage.TextureCoordinates);
@@ -163,14 +163,14 @@ public class Attractor extends ApplicationAdapter implements InputProcessor {
 	        Array<Vector3> attracor2 = new Array<Vector3>();
 	        
 	        //x
-	        FileHandle file = Gdx.files.external("x1.txt");
+	        FileHandle file = Gdx.files.internal("assets/"+"x1.txt");
 	        String[] arr = file.readString().split("\n");
 	        for (String s:arr)
 	        	if (!s.isEmpty())
 	        		attracor1.add(new Vector3(Float.valueOf(s).floatValue(), 0.f, 0.f));
 	        
 	        //y
-	        file = Gdx.files.external("x2.txt");
+	        file = Gdx.files.internal("assets/"+"x2.txt");
 	        arr = file.readString().split("\n");
 	        for (int i = 0; i < arr.length; i++) {
 	        	String s  = arr[i];
@@ -179,7 +179,7 @@ public class Attractor extends ApplicationAdapter implements InputProcessor {
 	        }
 	        
 	        //z
-	        file = Gdx.files.external("x3.txt");
+	        file = Gdx.files.internal("assets/"+"x3.txt");
 	        arr = file.readString().split("\n");
 	        for (int i = 0; i < arr.length; i++) {
 	        	String s  = arr[i];
@@ -219,14 +219,14 @@ public class Attractor extends ApplicationAdapter implements InputProcessor {
 	        
 	        
 	        
-	        file = Gdx.files.external("x21.txt");
+	        file = Gdx.files.internal("assets/"+"x21.txt");
 	        arr = file.readString().split("\n");
 	        for (String s:arr)
 	        	if (!s.isEmpty())
 	        		attracor2.add(new Vector3(Float.valueOf(s).floatValue(), 0.f, 0.f));
 	        
 	        //y
-	        file = Gdx.files.external("x22.txt");
+	        file = Gdx.files.internal("assets/"+"x22.txt");
 	        arr = file.readString().split("\n");
 	        for (int i = 0; i < arr.length; i++) {
 	        	String s  = arr[i];
@@ -235,7 +235,7 @@ public class Attractor extends ApplicationAdapter implements InputProcessor {
 	        }
 	        
 	        //z
-	        file = Gdx.files.external("x23.txt");
+	        file = Gdx.files.internal("assets/"+"x23.txt");
 	        arr = file.readString().split("\n");
 	        for (int i = 0; i < arr.length; i++) {
 	        	String s  = arr[i];
@@ -313,7 +313,7 @@ public class Attractor extends ApplicationAdapter implements InputProcessor {
         }
         
         for (int i = 0; i < trackBar2.pos; i++) {
-        	Color cl = Color.GOLDENROD;
+        	Color cl = Color.PURPLE;
 	        if (i == 0)
 	        	cl = Color.RED;
 	        if (i == (trackBar2.pos-1))
